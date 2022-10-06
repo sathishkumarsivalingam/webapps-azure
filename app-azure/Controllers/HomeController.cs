@@ -24,7 +24,9 @@ namespace app_azure.Controllers
         public IActionResult Index()
         {
             var appKey = _configuration.GetSection("RepoName").Value;
+            var connection = _configuration.GetConnectionString("DefaultConnection");
             ViewBag.Repository = appKey;
+            ViewBag.Connection = connection;
             return View();
         }
 
